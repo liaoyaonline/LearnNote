@@ -5,6 +5,9 @@
 - locate kcg//寻找名字包含kcg的文件
 
 - df -TH //查看已经挂载的表的情况
+> ip addr //查看ip地址
+
+>  tail -f /usr/local/apache/logs/error_log//动态的显示error_log的尾部几个数据
 
 - mkfs -t ext4 -c /dev/sdb1//将指定硬盘格式化，必须先卸载
 
@@ -12,9 +15,11 @@
 
 - mount /dev/sdb1 /mnt //将/dev/sdb1分区挂载到/mnt文件夹下面	
 
+
 - fdisk /dev/sdb //创建sdb里面的新分区
 
 - /etc/fstab //自动挂载文件
+> xxd filename.txt //以16进制的形式将文件内容输出
 
 - find / -name "a.c"//寻找根目录中名为a.c的文件
 find /home/liaoya/github/novel-plus/ -name '*' | xargs grep '排行' > log //查找该目录下所有包含排行字符的文件
