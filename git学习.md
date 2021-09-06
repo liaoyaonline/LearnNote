@@ -2,7 +2,8 @@
 # 前置条件：申请github帐号，以及安装github
 &emsp;&emsp;1,github已经安装好了，如果没有请参考：[Ubuntu下配置和使用GitHub](https://www.linuxidc.com/Linux/2016-12/137911.htm)
 # 设置缓存文件夹
-
+* git fetch origin//用于查询新分支
+* git checkout xxx//切换到新分支
 
     mkdir github//创建一个文件夹
     cd github//进入该文件夹

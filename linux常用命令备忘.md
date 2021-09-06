@@ -1,4 +1,18 @@
 # linux常用命令备忘
+## 一些地址备忘
+`/cfg/NRP/1/pem`证书存储地址
+`/cfg/GAD/cert/site`也是证书存储地址
+## 间接命令
+*  ctags -R //建立各个变量结构体，类的定义索引输出tags文件
+
+* vim -t SiteStore //查询SiteStore的定义处需要在源文件目录下先运行ctags -R
+
+* ctrl+T//返回查找
+
+* clang-format -style=google -i main.cpp
+
+* sudo nmap -sS -p 30000-65535 -v 192.168.190.7//扫描192.168.190.7制定端口范围30000-65535使用sS模式输出进度
+## 直接命令
 -  du -sh * //查看文件中大小
 
 - fdisk -l //查看硬盘各个表的情况
@@ -22,7 +36,7 @@
 > xxd filename.txt //以16进制的形式将文件内容输出
 
 - find / -name "a.c"//寻找根目录中名为a.c的文件
-find /home/liaoya/github/novel-plus/ -name '*' | xargs grep '排行' > log //查找该目录下所有包含排行字符的文件
+find ./ -type f -name "*" | xargs grep key //查找当前目录下所有包含key字符的文件
 
 - unrar x etc.rar //将etc.rar按照路径解压
 - unrar e -p etc.rar //解压带密码的rar
@@ -60,3 +74,7 @@ find /home/liaoya/github/novel-plus/ -name '*' | xargs grep '排行' > log //查
 - sudo mount -a//让挂载文件/etc/fstab文件生效
 
 -  sudo apt-get --purge remove electron-ssr//卸载名为electron-ssr的程序星期四, 13. 五月 2021 03:41下午 
+
+- netstat -antlp//查看被监听的端口
+
+- sudo /etc/init.d/ssh restart//打开ssh
