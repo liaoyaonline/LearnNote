@@ -16,6 +16,7 @@
     git push//上传
     git pull//拉取
     git remote -v //查看clone的地址 
+    git checkout - Makefile //做了错误的修改，尚未add，使用此命令回退到上次add的状态
 # 将目标文件移缓存文件夹
 &emsp;&emsp;如果你要上传的文件不在刚才新建的github文件夹里面先将该文件移动到github文件夹里面</br>
 &emsp;&emsp;如果你已经将目标文件移入刚创建的github文件夹，请执行以步骤

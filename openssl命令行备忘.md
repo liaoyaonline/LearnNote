@@ -1,7 +1,21 @@
 # openssl命令行备忘
-## 一些问题
-* 什么是国密的双证书？
-双证书即两套证书，在以往的知识学习中，我们知道对于非对称加密会产生一个公钥和一个私钥，一般而言，我们使用公钥进行加密，然后用私钥进行签名，或者使用私钥进行签名(加密)，公钥进行验证。双证书即使用一个key生成两套证书（具体是使用`openssl`的`v3`拓展项，在配置文件中指定证书用途，来生成不同的证书)，一套证书只用来加密，一套证书只用来签名，对于客户端来说，需要保留加密的证书（公钥)和签名的证书（私钥+)
+## 常用证书命令
+* 生成私钥，提取公钥
+```
+openssl genrsa -out private.pem 1024
+openssl rsa -in private.pem -out public.pem -pubout
+```
+* 公钥加密，私钥解密
+```
+openssl rsautl -encrypt -inkey public.pem -pubin -in message.txt -out message.ssl
+openssl rsautl -decrypt -inkey private.pem       -in message.ssl -out message.txt
+```
+* 私钥加密，公钥解密
+```
+openssl rsautl -sign -inkey private.pem       -in message.txt -out message.ssl
+openssl rsautl       -inkey public.pem -pubin -in message.ssl -out message.txt
+```
+
 ## openssl命令行
 * 查看证书配置信息
 ```

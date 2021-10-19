@@ -12,11 +12,32 @@
 * clang-format -style=google -i main.cpp
 
 * sudo nmap -sS -p 30000-65535 -v 192.168.190.7//扫描192.168.190.7制定端口范围30000-65535使用sS模式输出进度
+
+
+gcc -c -I/home/liaoya/github/testwork/usr/local/kssl/1.1/include ./client.c -DKOAL_SSL_EXTENSION  -L/home/liaoya/github/testwork/usr/local/kssl/1.1/lib -lssl -lcrypto//指定-DKOAL_SSL_EXTENSION不知道是什么意思，-L是指定.so文件
 ## 直接命令
+- ifconfig -a //查看端口
+- ifconfig eth4 10.0.80.109/24 up//设置临时ip，如果是公司网关的话一般设置为eth0，这个默认从内核过。
+- route add default gw 10.0.80.254//配默认网关，后面要改为254不知道为什么
+- route -n //查询当前网关信息
+- ethtool -p enp9s0 //查询这个网口对应的是哪个接口，执行这个命令，对应的接口旁边的指示灯会闪烁
+- ip addr
+```
+UP：表示网卡是启动状态。
+BROADCAST：表示网卡有广播地址，可以发送广播包。
+LOWER_UP：表示网卡是启动的，且网线插着。//这个常用
+MULTICAST：表示网卡可以发送多播包，也叫组播。
+```
+`一般而言网络能够不通检查三个环节，第一个IP是否配置好(ifconfig eth4 10.0.80.109/24 up进行配置)，第二个检测默认网关是否配置好(使用命令route -n进行查询，使用命令route add default gw 10.0.80.254进行配置，最后查看DNS配置文件，这个是用来解析网址的，将www.baidu.com解析为IP地址(180.101.49.11)，公司内一般设定为nameserver 10.0.1.9`
+
+- netstat -antlp | grep ssh //查看被监听的端口里面有没有ssh
+- sudo service ssh restart//重启ssh服务
 -  du -sh * //查看文件中大小
 
 - fdisk -l //查看硬盘各个表的情况
 - locate kcg//寻找名字包含kcg的文件
+
+- ln SSL单向验证和双向验证握手详解.md /home/liaoya/github/rookie_first/fourth_week/1/SSL单向验证和双向验证握手详解.md//将本文件夹中的SSL单向验证和双向验证握手详解.md链接到另一个文件夹中，两个文件夹里面都可以对其进行修改
 
 - df -TH //查看已经挂载的表的情况
 > ip addr //查看ip地址
